@@ -108,7 +108,7 @@ function formatInfoWindowContent(data, position) {
 function createRouteMarkerAndShowRoute(position) {
     var offsetPosition = {
         lat: position.lat,
-        lng: position.lng - 0.0005 // Adjust this value to control the distance left of the original position
+        lng: position.lng - 0.05 // Adjust this value to control the distance left of the original position
     };
 
     if (routeMarker) {
