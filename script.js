@@ -54,7 +54,6 @@ function initMap() {
         marker.addListener('click', function() {
             infoWindow.setContent(formatInfoWindowContent(leader.data));
             infoWindow.open(map, marker);
-            calculateAndDisplayRoute(directionsService, directionsRenderer, startPoint, leader.position);
         });
 
         markers.push({ marker: marker, party: leader.data.party });
@@ -83,6 +82,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, origin,
         function(response, status) {
             if (status === 'OK') {
                 directionsRenderer.setDirections(response);
+                directionsRenderer.setOptions({ preserveViewport: true }); // Prevents zooming in
             } else {
                 window.alert('Directions request failed due to ' + status);
             }
@@ -97,6 +97,7 @@ function formatInfoWindowContent(data) {
             <p>Party: ${data.party}</p>
             <p>Age: ${data.age}</p>
             <p>Party: ${data.party}</p>
+            <button onclick="calculateAndDisplayRoute(directionsService, directionsRenderer, startPoint, {lat: ${position.lat}, lng: ${position.lng}})">Show Route</button>
         </div>
     `;
 }
