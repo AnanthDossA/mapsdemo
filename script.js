@@ -35,7 +35,7 @@ function initMap() {
     });
 
     directionsService = new google.maps.DirectionsService();
-    directionsRenderer = new google.maps.DirectionsRenderer();
+    directionsRenderer = new google.maps.DirectionsRenderer({ preserveViewport: true });
     directionsRenderer.setMap(map);
 
     leaders.forEach(function(leader) {
@@ -52,11 +52,13 @@ function initMap() {
         var infoWindow = new google.maps.InfoWindow();
 
         marker.addListener('click', function() {
+            if (currentInfoWindow) {
+                currentInfoWindow.close();
+            }
             infoWindow.setContent(formatInfoWindowContent(leader.data, leader.position));
             infoWindow.open(map, marker);
+            currentInfoWindow = infoWindow;
         });
-
-        markers.push({ marker: marker, party: leader.data.party });
     });
 }
 
@@ -97,7 +99,23 @@ function formatInfoWindowContent(data, position) {
             <p>Party: ${data.party}</p>
             <p>Age: ${data.age}</p>
             <p>Party: ${data.party}</p>
-            <button onclick="calculateAndDisplayRoute(directionsService, directionsRenderer, startPoint, {lat: ${position.lat}, lng: ${position.lng}})">Show Route</button>
+            <button onclick="createRouteMarkerAndShowRoute({lat: ${position.lat}, lng: ${position.lng}})">Show Route</button>
         </div>
     `;
+}
+function createRouteMarkerAndShowRoute(position) {
+    if (routeMarker) {
+        routeMarker.setMap(null);
+    }
+    routeMarker = new google.maps.Marker({
+        position: position,
+        map: map,
+        draggable: true
+    });
+
+    routeMarker.addListener('dragend', function() {
+        calculateAndDisplayRoute(directionsService, directionsRenderer, startPoint, routeMarker.getPosition());
+    });
+
+    calculateAndDisplayRoute(directionsService, directionsRenderer, startPoint, position);
 }
