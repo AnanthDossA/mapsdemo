@@ -38,8 +38,12 @@ async function initMap() {
     var markers = [];
 
     leaders.forEach(function(leader) {
+                var offsetPosition = {
+            lat: leader.position.lat,
+            lng: leader.position.lng - 0.5 // Adjust the marker slightly to the left
+        };
         var marker = new google.maps.Marker({
-            position: leader.position,
+            position: offsetPosition,
             map: map,
             title: leader.data.name,
             icon: {
