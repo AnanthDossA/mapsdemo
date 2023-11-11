@@ -58,8 +58,9 @@ async function initMap() {
             infoWindow.setContent(formatInfoWindowContent(leader.data, leader.position));
             infoWindow.open(map, marker);
         });
-        createRouteMarkerAndShowRoute({lat: position.lat, lng: position.lng});
     });
+    createRouteMarkerAndShowRoute({lat: position.lat, lng: position.lng});
+
 
     function formatInfoWindowContent(data, position) {
         return `
