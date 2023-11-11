@@ -25,7 +25,7 @@ async function initMap() {
         icon: 'https://ik.imagekit.io/iumcogm7nb/us-president-joe-biden-300x277.jpeg?updatedAt=1699680247965'
     },
         {
-            position: { lat: 37.388951, lng: -123.030495 },
+            position: { lat: 40.388951, lng: -123.030495 },
         data: {
             name: "Trump",
             age: 77,
