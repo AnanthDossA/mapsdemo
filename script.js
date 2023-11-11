@@ -101,16 +101,21 @@ function formatInfoWindowContent(data, position) {
             <p>Party: ${data.party}</p>
             <p>Age: ${data.age}</p>
             <p>Party: ${data.party}</p>
-            <button onclick="createRouteMarkerAndShowRoute({lat: ${position.lat+10}, lng: ${position.lng+10}})">Show Route</button>
+            <button onclick="createRouteMarkerAndShowRoute({lat: ${position.lat}, lng: ${position.lng}})">Show Route</button>
         </div>
     `;
 }
 function createRouteMarkerAndShowRoute(position) {
+    var offsetPosition = {
+        lat: position.lat,
+        lng: position.lng - 0.0005 // Adjust this value to control the distance left of the original position
+    };
+
     if (routeMarker) {
         routeMarker.setMap(null);
     }
     routeMarker = new google.maps.Marker({
-        position: position,
+        position: offsetPosition,
         map: map,
         draggable: true // Confirm marker is draggable
     });
