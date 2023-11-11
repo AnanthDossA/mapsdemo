@@ -80,7 +80,7 @@ async function initMap() {
 
         window.routeMarker = new AdvancedMarkerElement({
             map: map,
-            position: offsetPosition,
+            position: position,
             gmpDraggable: true,
             title: "Drag me to set the route destination."
         });
