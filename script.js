@@ -101,7 +101,7 @@ function formatInfoWindowContent(data, position) {
             <p>Party: ${data.party}</p>
             <p>Age: ${data.age}</p>
             <p>Party: ${data.party}</p>
-            <button onclick="createRouteMarkerAndShowRoute({lat: ${position.lat}, lng: ${position.lng}})">Show Route</button>
+            <button onclick="createRouteMarkerAndShowRoute({lat: ${position.lat+10}, lng: ${position.lng+10}})">Show Route</button>
         </div>
     `;
 }
