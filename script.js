@@ -197,6 +197,7 @@ async function initMap() {
     }
 
     window.createRouteMarkerAndShowRoute = (position) => {
+        infoWindow.close();
         if (window.routeMarker) {
             window.routeMarker.setMap(null);
         }
