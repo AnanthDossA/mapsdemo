@@ -90,7 +90,7 @@ async function initMap() {
         console.log("Marker dragged to:", newPosition);  // Debug log
         calculateAndDisplayRoute(directionsService, directionsRenderer, position, newPosition);
     });
-        calculateAndDisplayRoute(directionsService, directionsRenderer, position, offsetPosition);
+        calculateAndDisplayRoute(directionsService, directionsRenderer, position, startPoint);
     };
 
     function calculateAndDisplayRoute(directionsService, directionsRenderer, origin, destination) {
