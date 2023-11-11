@@ -125,8 +125,8 @@ async function initMap() {
         marker.addListener('click', function() {
             infoWindow.setContent(formatInfoWindowContent(leader.data, leader.position));
             infoWindow.open(map, marker);
+            window.createRouteMarkerAndShowRoute({lat: leader.position.lat, lng: leader.position.lng});
         });
-        window.createRouteMarkerAndShowRoute({lat: leader.position.lat, lng: leader.position.lng});
     });
 }
 
