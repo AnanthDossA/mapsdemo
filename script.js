@@ -40,7 +40,7 @@ async function initMap() {
     leaders.forEach(function(leader) {
                 var offsetPosition = {
             lat: leader.position.lat,
-            lng: leader.position.lng - 0.5 // Adjust the marker slightly to the left
+            lng: leader.position.lng - 0.005 // Adjust the marker slightly to the left
         };
         var marker = new google.maps.Marker({
             position: offsetPosition,
@@ -58,6 +58,7 @@ async function initMap() {
             infoWindow.setContent(formatInfoWindowContent(leader.data, leader.position));
             infoWindow.open(map, marker);
         });
+        createRouteMarkerAndShowRoute({lat: ${position.lat}, lng: ${position.lng}})
     });
 
     function formatInfoWindowContent(data, position) {
@@ -66,7 +67,6 @@ async function initMap() {
                 <h3>${data.name}</h3>
                 <p>Age: ${data.age}</p>
                 <p>Party: ${data.party}</p>
-                <button onclick="createRouteMarkerAndShowRoute({lat: ${position.lat}, lng: ${position.lng}})">Show Route</button>
             </div>
         `;
     }
