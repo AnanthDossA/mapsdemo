@@ -55,7 +55,7 @@ async function initMap() {
 
         var offsetPosition = {
             lat: position.lat,
-            lng: position.lng - 0.00025 // Adjust the marker slightly to the left
+            lng: position.lng - 0.0010 // Adjust the marker slightly to the left
         };
 
         window.routeMarker = new AdvancedMarkerElement({
