@@ -5,10 +5,18 @@ function initMap() {
     };
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-    // Example markers
+    // Example markers with custom icons
     var leaders = [
-        { position: { lat: -34.397, lng: 150.644 }, title: "Leader 1" },
-        { position: { lat: -35.397, lng: 151.644 }, title: "Leader 2" }
+        {
+            position: { lat: -34.397, lng: 150.644 },
+            title: "JoeBiden",
+            icon: 'https://ik.imagekit.io/iumcogm7nb/us-president-joe-biden-300x277.jpeg?updatedAt=1699680247965' // Replace with your custom icon URL
+        },
+        {
+            position: { lat: -35.397, lng: 151.644 },
+            title: "Putin",
+            icon: 'https://ik.imagekit.io/iumcogm7nb/us-president-joe-biden-300x277.jpeg?updatedAt=1699680247965' // Replace with your custom icon URL
+        }
         // Add more leaders as needed
     ];
 
@@ -16,7 +24,8 @@ function initMap() {
         var marker = new google.maps.Marker({
             position: leader.position,
             map: map,
-            title: leader.title
+            title: leader.title,
+            icon: leader.icon // Setting custom icon
         });
 
         var infoWindow = new google.maps.InfoWindow({
@@ -28,4 +37,3 @@ function initMap() {
         });
     });
 }
-
