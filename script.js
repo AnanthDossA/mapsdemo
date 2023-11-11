@@ -213,10 +213,11 @@ async function initMap() {
             title: "Drag me to set the route destination."
         });
 
-        window.routeMarker.addListener('dragend', function() {
-            calculateAndDisplayRoute(directionsService, directionsRenderer, startPoint, this.getPosition());
-        });
-
+    window.routeMarker.addListener('dragend', function(event) {
+        var newPosition = event.latLng;  // Get the new position from the event object
+        console.log("Marker dragged to:", newPosition);  // Debug log
+        calculateAndDisplayRoute(directionsService, directionsRenderer, startPoint, newPosition);
+    });
         calculateAndDisplayRoute(directionsService, directionsRenderer, startPoint, offsetPosition);
     };
 
