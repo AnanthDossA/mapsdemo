@@ -52,7 +52,7 @@ function initMap() {
         var infoWindow = new google.maps.InfoWindow();
 
         marker.addListener('click', function() {
-            infoWindow.setContent(formatInfoWindowContent(leader.data));
+            infoWindow.setContent(formatInfoWindowContent(leader.data, leader.position));
             infoWindow.open(map, marker);
         });
 
