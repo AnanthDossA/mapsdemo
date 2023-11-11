@@ -93,7 +93,6 @@ async function initMap() {
             calculateAndDisplayRoute(directionsService, directionsRenderer, startPoint, newPosition);
         }
     });
-        calculateAndDisplayRoute(directionsService, directionsRenderer, position, startPoint);
     };
 
     function calculateAndDisplayRoute(directionsService, directionsRenderer, origin, destination) {
