@@ -87,8 +87,8 @@ async function initMap() {
 
     window.routeMarker.addListener('dragend', function(event) {
         var newPosition = event.latLng;  // Get the new position from the event object
-        if (newPosition.lat().toFixed(5) !== position.lat.toFixed(5) ||
-            newPosition.lng().toFixed(5) !== position.lng.toFixed(5)) {
+        if (newPosition.lat().toFixed(5) !== position.lat.toFixed(3) ||
+            newPosition.lng().toFixed(5) !== position.lng.toFixed(3)) {
             console.log("Marker moved to a new position:", newPosition);
             calculateAndDisplayRoute(directionsService, directionsRenderer, startPoint, newPosition);
         }
