@@ -1,17 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
+<!--
+ @license
+ Copyright 2019 Google LLC. All Rights Reserved.
+ SPDX-License-Identifier: Apache-2.0
+-->
 <html>
-<head>
-    <title>Political Leaders Map</title>
+  <head>
+    <title>Interactive Political Leaders Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <style>
-        #map {
-            height: 400px;
-            width: 100%;
-        }
+      #map {
+          height: 100vh; /* Adjust the height as needed */
+          width: 100%;
+      }
+      .filter-container {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          background: white;
+          padding: 10px;
+          z-index: 5;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="filter-container">
+      <label for="partyFilter">Filter by Party:</label>
+      <select id="partyFilter" onchange="filterMarkers(this.value)">
+        <option value="all">All</option>
+        <option value="Party1">Party 1</option>
+        <option value="Party2">Party 2</option>
+        <!-- Add more parties as options here -->
+      </select>
+    </div>
     <div id="map"></div>
+
+    <!-- prettier-ignore -->
+    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+        ({key: "AIzaSyClYUBgHwJJu0mb0au812NS7fGSDH9BZHE", v: "weekly"});</script>
     <script src="script.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClYUBgHwJJu0mb0au812NS7fGSDH9BZHE&callback=initMap"></script>
-</body>
+  </body>
 </html>
