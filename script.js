@@ -115,15 +115,15 @@ function createRouteMarkerAndShowRoute(position) {
         routeMarker.setMap(null);
     }
     routeMarker = new google.maps.Marker({
-        position: offsetPosition,
+        position: offsetPosition, // Use the adjusted position
         map: map,
-        draggable: true // Confirm marker is draggable
+        draggable: true
     });
 
-    routeMarker.addListener('dragend', function(event) {
-        event.stop(); // Stop event propagation
-        calculateAndDisplayRoute(directionsService, directionsRenderer, startPoint, routeMarker.getPosition());
+    google.maps.event.addListener(routeMarker, 'dragend', function() {
+        calculateAndDisplayRoute(directionsService, directionsRenderer, startPoint, this.getPosition());
     });
 
-    calculateAndDisplayRoute(directionsService, directionsRenderer, startPoint, position);
+    calculateAndDisplayRoute(directionsService, directionsRenderer, startPoint, offsetPosition);
 }
+
