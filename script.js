@@ -112,10 +112,11 @@ function createRouteMarkerAndShowRoute(position) {
     routeMarker = new google.maps.Marker({
         position: position,
         map: map,
-        draggable: true
+        draggable: true // Confirm marker is draggable
     });
 
-    routeMarker.addListener('dragend', function() {
+    routeMarker.addListener('dragend', function(event) {
+        event.stop(); // Stop event propagation
         calculateAndDisplayRoute(directionsService, directionsRenderer, startPoint, routeMarker.getPosition());
     });
 
