@@ -1,8 +1,10 @@
 var map;
 var directionsService;
 var directionsRenderer;
-var markers = [];
 var startPoint = { lat: -34.397, lng: 150.644 }; // Replace with your actual starting point
+var currentInfoWindow;
+var routeMarker; // Marker used for setting destination of the route
+
 
 var leaders = [
     {
