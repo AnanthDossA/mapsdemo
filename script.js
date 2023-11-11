@@ -37,31 +37,6 @@ async function initMap() {
     ];
     var markers = [];
 
-    leaders.forEach(function(leader) {
-                var offsetPosition = {
-            lat: leader.position.lat,
-            lng: leader.position.lng - 0.0005 // Adjust the marker slightly to the left
-        };
-        var marker = new google.maps.Marker({
-            position: offsetPosition,
-            map: map,
-            title: leader.data.name,
-            icon: {
-                url: leader.icon,
-                scaledSize: new google.maps.Size(50, 50)
-            }
-        });
-
-        markers.push({ marker: marker, party: leader.data.party });
-
-        marker.addListener('click', function() {
-            infoWindow.setContent(formatInfoWindowContent(leader.data, leader.position));
-            infoWindow.open(map, marker);
-        });
-    });
-    createRouteMarkerAndShowRoute({lat: position.lat, lng: position.lng});
-
-
     function formatInfoWindowContent(data, position) {
         return `
             <div>
@@ -129,6 +104,30 @@ async function initMap() {
             }
         });
     };
+
+        leaders.forEach(function(leader) {
+                var offsetPosition = {
+            lat: leader.position.lat,
+            lng: leader.position.lng - 0.0005 // Adjust the marker slightly to the left
+        };
+        var marker = new google.maps.Marker({
+            position: offsetPosition,
+            map: map,
+            title: leader.data.name,
+            icon: {
+                url: leader.icon,
+                scaledSize: new google.maps.Size(50, 50)
+            }
+        });
+
+        markers.push({ marker: marker, party: leader.data.party });
+
+        marker.addListener('click', function() {
+            infoWindow.setContent(formatInfoWindowContent(leader.data, leader.position));
+            infoWindow.open(map, marker);
+        });
+        window.createRouteMarkerAndShowRoute({lat: position.lat, lng: position.lng});
+    });
 }
 
 initMap();
