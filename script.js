@@ -8,7 +8,7 @@
 
 // var leaders = [
 //     {
-//         position: { lat: -34.397, lng: 150.644 },
+//         position: { lat: -34.397, lng: 160.644 },
 //         data: {
 //             name: "Joe Biden",
 //             party: "Party1",
