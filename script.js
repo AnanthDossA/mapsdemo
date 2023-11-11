@@ -40,7 +40,7 @@ async function initMap() {
     leaders.forEach(function(leader) {
                 var offsetPosition = {
             lat: leader.position.lat,
-            lng: leader.position.lng - 0.005 // Adjust the marker slightly to the left
+            lng: leader.position.lng - 0.0005 // Adjust the marker slightly to the left
         };
         var marker = new google.maps.Marker({
             position: offsetPosition,
