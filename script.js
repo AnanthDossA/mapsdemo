@@ -90,7 +90,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, origin,
     );
 }
 
-function formatInfoWindowContent(data) {
+function formatInfoWindowContent(data, position) {
     return `
         <div>
             <h3>${data.name}</h3>
