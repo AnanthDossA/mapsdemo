@@ -99,7 +99,7 @@ async function initMap() {
         leaders.forEach(function(leader) {
                 var offsetPosition = {
             lat: leader.position.lat,
-            lng: leader.position.lng - 0.20 // Adjust the marker slightly to the left
+            lng: leader.position.lng - 0.0020 // Adjust the marker slightly to the left
         };
         var marker = new google.maps.Marker({
             position: offsetPosition,
