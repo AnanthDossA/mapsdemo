@@ -84,8 +84,11 @@ async function initMap() {
             gmpDraggable: true,
             title: "Drag me to set the route destination."
         });
-
+    window.routeMarker.addListener('dragstart', function(event) {
+        event.stopPropagation();
+    });
     window.routeMarker.addListener('dragend', function(event) {
+         event.stopPropagation();
         var newPosition = event.latLng;  // Get the new position from the event object
         if (newPosition.lat().toFixed(5) !== position.lat.toFixed(3) ||
             newPosition.lng().toFixed(5) !== position.lng.toFixed(3)) {
