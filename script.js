@@ -16,10 +16,10 @@ function initMap() {
             }
         },
         {
-            position: { lat: -30.397, lng: 151.644 },
-            title: "Putin",
+            position: { lat: -32.397, lng: 151.644 },
+            title: "Trump",
             icon: {
-                url: 'https://ik.imagekit.io/iumcogm7nb/us-president-joe-biden-300x277.jpeg?updatedAt=1699680247965', // Replace with your custom icon URL
+                url: 'https://ik.imagekit.io/iumcogm7nb/kr9u49fk_donald-trump-reuters_625x300_20_February_22%20(1).webp?updatedAt=1699680535523', // Replace with your custom icon URL
                 scaledSize: new google.maps.Size(50, 50) // Scaling the icon size
             }
         }
