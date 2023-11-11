@@ -53,11 +53,6 @@ async function initMap() {
             window.routeMarker.setMap(null);
         }
 
-        var offsetPosition = {
-            lat: position.lat,
-            lng: position.lng - 0.050 // Adjust the marker slightly to the left
-        };
-
         window.routeMarker = new AdvancedMarkerElement({
             map: map,
             position: position,
@@ -104,7 +99,7 @@ async function initMap() {
         leaders.forEach(function(leader) {
                 var offsetPosition = {
             lat: leader.position.lat,
-            lng: leader.position.lng - 0.0005 // Adjust the marker slightly to the left
+            lng: leader.position.lng - 0.0020 // Adjust the marker slightly to the left
         };
         var marker = new google.maps.Marker({
             position: offsetPosition,
