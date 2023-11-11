@@ -10,14 +10,19 @@ function initMap() {
         {
             position: { lat: -34.397, lng: 150.644 },
             title: "JoeBiden",
-            icon: 'https://ik.imagekit.io/iumcogm7nb/us-president-joe-biden-300x277.jpeg?updatedAt=1699680247965' // Replace with your custom icon URL
+                 icon: {
+                url: 'https://ik.imagekit.io/iumcogm7nb/us-president-joe-biden-300x277.jpeg?updatedAt=1699680247965', // Replace with your custom icon URL
+                scaledSize: new google.maps.Size(50, 50) // Scaling the icon size
+            }
         },
         {
-            position: { lat: -35.397, lng: 151.644 },
+            position: { lat: -30.397, lng: 151.644 },
             title: "Putin",
-            icon: 'https://ik.imagekit.io/iumcogm7nb/us-president-joe-biden-300x277.jpeg?updatedAt=1699680247965' // Replace with your custom icon URL
+            icon: {
+                url: 'https://ik.imagekit.io/iumcogm7nb/us-president-joe-biden-300x277.jpeg?updatedAt=1699680247965', // Replace with your custom icon URL
+                scaledSize: new google.maps.Size(50, 50) // Scaling the icon size
+            }
         }
-        // Add more leaders as needed
     ];
 
     leaders.forEach(function(leader) {
